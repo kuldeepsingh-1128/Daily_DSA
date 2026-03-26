@@ -49,13 +49,23 @@ class list{
 
     void push_back(int val){
         Node* newNode=new Node(val);
+        Node* temp=head;
+
         if(head==NULL){
             head=tail=newNode;
         }
-        else{
-            tail->next=newNode;
-            tail=newNode;
+
+        while(temp->next!=NULL){
+            temp=temp->next;
+            
         }
+        temp->next=newNode;
+        tail=newNode;
+
+        // else{
+        //     tail->next=newNode;
+        //     tail=newNode;
+        // }
     }
 
     void printll(){
@@ -92,11 +102,11 @@ class list{
         if(head==NULL){
             cout<<"linked list is empty!!";
             return;
-        }else{
-            head=head->next;
-            delete temp;
-            temp=NULL;
         }
+            head=head->next;
+            temp->next=NULL;
+            delete temp;
+        
 
     }
 
@@ -107,7 +117,24 @@ class list{
             temp=temp->next;
         }
         temp->next=NULL;
+        delete tail;
         tail=temp;
+    }
+
+    int searchitr(int key){
+        Node* temp=head;
+        int idx=0;
+        while (temp!=NULL)
+        {
+           if(temp->Data==key){
+            cout<<key<<"="<<idx<<endl;
+            return idx;
+           }
+           temp=temp->next;
+           idx++;
+        }
+        return -1;
+        
     }
 
 
@@ -118,16 +145,17 @@ int main(){
     ll.push_front(1);
     ll.push_front(2);
     ll.push_front(3);
+    ll.pop_back();
 
     ll.printll();
 
     ll.push_back(4);
     ll.push_back(5);
-    ll.push_back(6);
-    ll.insert(100,2);
-    ll.pop_front();
+    ll.push_back(52);
     ll.pop_front();
     ll.printll();
+
+    ll.searchitr(4);
 
     
     return 0;
