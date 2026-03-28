@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int conversion(int n){
+int decToBin(int n){
     int rem=0;
     int pow=1;
     int total=0;
@@ -23,6 +23,6 @@ int main(){
     int n;
     cout<<"enter a decimal number=";
     cin>>n;
-    cout<<conversion(n);
+    cout<<decToBin(n);
 
 }
