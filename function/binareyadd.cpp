@@ -70,7 +70,6 @@ int binerysum(int a,int b){
     cout<<"sum in binery is="<<total<<endl;
     return convert(total);
 
-    // return total;
     
 }
 int main(){
