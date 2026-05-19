@@ -1,22 +1,23 @@
 #include<iostream>
 using namespace std;
 
-int staircase(int mat[3][3],int n,int m,int key){
+bool staircase(int mat[3][3],int n,int m,int key){
     int row=0,col=m-1;
     while (row<n && col>=0)
     {
         if(mat[row][col]==key){
-            cout<<"key at index "<<row<<" "<<col;
-            return mat[row][col];
+            cout<<"found cell=( "<<row<<" "<<col<<" )";
+            return true;
         }
-        if(mat[row][col]>key){
+        else if(mat[row][col]>key){
             col--;
         }
-        if(mat[row][col]<key){
+        else{
             row++;
         }
     }
-    return -1;
+    cout<<"value not found";
+    return false;
     
 }
 
@@ -28,5 +29,6 @@ int main(){
     int key;
     cout<<"enter a key=";
     cin>>key;
+    staircase(mat,3,3,key);
 
 }
