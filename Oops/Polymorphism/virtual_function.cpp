@@ -8,7 +8,7 @@ class parents{
     }
 };
 
-class child{
+class child :public parents{
     public:
     void hello(){
         cout<<"child hello..";
@@ -19,4 +19,5 @@ int main(){
     child child1;
     parents *ptr;
     ptr = &child1;
+    ptr->hello();
 }
