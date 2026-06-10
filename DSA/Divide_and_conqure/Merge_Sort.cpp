@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-void merg(int arr[],int st,int end,int mid){
+void merge(int arr[],int st,int end,int mid){
     vector<int> vec1;
     int i=st;
     int j=mid+1;
@@ -27,14 +27,14 @@ void merg(int arr[],int st,int end,int mid){
     }
 }
 
-void mergsort(int arr[],int st,int end){
+void mergesort(int arr[],int st,int end){
     if(st>=end){
         return;
     }
     int mid=st+(end-st)/2;
-    mergsort(arr,st,mid);
-    mergsort(arr,mid+1,end);
-    merg(arr,st,end,mid);
+    mergesort(arr,st,mid);
+    mergesort(arr,mid+1,end);
+    merge(arr,st,end,mid);
 }
 
 void printarr(int arr[] ,int n){
@@ -46,6 +46,6 @@ void printarr(int arr[] ,int n){
 int main(){
     int arr[6]={6,3,7,5,2,4};
     int n=6;
-    mergsort(arr,0,n-1);
+    mergesort(arr,0,n-1);
     printarr(arr,n);
 }
